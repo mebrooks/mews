@@ -1,0 +1,16 @@
+Package: mews
+Title: More Early Warning Signals
+Version: 0.0.0.9000
+Authors@R: c(person("Koen","van Bentham", role=c("aut", "cre"),
+                    email = "koenvanbenthem@gmail.com"),
+             person("Mollie", "Brooks", role = c("aut", "cre"), 
+                    email = "mollieebrooks@gmail.com"))
+Description: This package contains methods for detecting early warning signals in time series of populaitons. For speed, they are implemented in C++. Some methods are based on the previous packages `earlywarning` and `earlywarnings`. 
+Depends: R (>= 3.2.3)
+License: What license is it under?
+LazyData: true
+VignetteBuilder: knitr
+URL: https://github.com/mebrooks/mews
+BugReports: https://github.com/mebrooks/mews/issues
+Depends: TMB
+LinkingTo: TMB
