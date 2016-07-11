@@ -1,7 +1,9 @@
 Package: mews
 Title: More Early Warning Signals
 Version: 0.0.0.9000
-Authors@R: c(person("Koen","van Bentham", role=c("aut"),
+Authors@R: c(person("Carl","Boettiger", role=c("aut"),
+                    email = "cboettig@gmail.com"),
+		person("Koen","van Bentham", role=c("aut"),
                     email = "koenvanbenthem@gmail.com"),
 		person("Chris","Clements", role=c("aut"),
                     email = "chrisclementsresearch@gmail.com"),
