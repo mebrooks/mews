@@ -26,10 +26,18 @@ install: $(TARBALL)
 	$(R) CMD INSTALL --preclean $<
 	@touch $@
 
+doc-update: $(PACKAGE)/R/*.R
+	echo "library(roxygen2);roxygenize(\"$(PACKAGE)\",roclets = c(\"collate\", \"rd\"))" | $(R) --slave
+	@touch doc-update
+
+namespace-update :: $(PACKAGE)/NAMESPACE
+$(PACKAGE)/NAMESPACE: $(PACKAGE)/R/*.R
+	echo "library(roxygen2);roxygenize(\"$(PACKAGE)\",roclets = c(\"namespace\"))" | $(R) --slave
+
 ## To enable quick compile, run from R:
 ##    library(TMB); precompile(flags="-O0 -g")
 quick-install: enum-update $(PACKAGE)/src/LSN.so
-        enum-update $(PACKAGE)/src/OU.so
+	enum-update $(PACKAGE)/src/OU.so
 	$(R) CMD INSTALL $(PACKAGE)
 
 $(PACKAGE)/src/LSN.so: $(PACKAGE)/src/LSN.cpp
